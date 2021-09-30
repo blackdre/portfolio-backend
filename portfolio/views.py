@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Tutorials
+from .serializers import TutorialsSerializer
 
-# Create your views here.
+
+class TutorialsList(generics.ListAPIView):
+    queryset = Tutorials.objects.all()
+    serializer_class = TutorialsSerializer
