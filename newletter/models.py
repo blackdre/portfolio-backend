@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 
 class Emails(models.Model):
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
 
     class Meta:
         verbose_name = 'Emails'

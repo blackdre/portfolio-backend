@@ -23,6 +23,7 @@ urlpatterns = [
     path('api/v1/mycms/', include('mycms.urls')),
     path('api/v1/projects/', include('projects.urls')),
     path('api/v1/newsletter/', include('newletter.urls')),
+    path('api/v1/contact/', include('contact.urls')),
     path('admin/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

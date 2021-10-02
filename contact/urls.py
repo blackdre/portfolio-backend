@@ -1,9 +1,7 @@
 from django.urls import path
 
+from . import views
 
-def contact(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        message = request.POST['message']
+urlpatterns = [
+    path('contact', views.contact, name='contact')
+]
