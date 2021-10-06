@@ -1,22 +1,10 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Contact
+from .serializers import ContactSerializer
 from django.contrib import messages
 from django.core.mail import send_mail
 
 
-def contact(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        subject = request.POST['subject']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        message = request.POST['message']
-
-        # Send email
-        send_mail(
-            subject,
-            message,
-            'blessing@primetimecode.co.za',
-            [email],
-
-            fail_silently=False,
-        )
+class Contact(generics.ListCreateAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
