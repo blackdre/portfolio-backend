@@ -12,7 +12,7 @@ class Contact(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.contact_name
 
 
 @receiver(post_save, sender=Contact)
